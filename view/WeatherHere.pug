@@ -1,0 +1,55 @@
+<!-- https://restcountries.com/v3.1/alpha?codes=in -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherHere</title>
+    <link rel="shortcut icon" href="weather_image_icon.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="weatherhere_css.css" />
+  </head>
+  <body>
+    <h1> <a href="/">WeatherHere</a> </h1>
+    <div class="main_frame">
+      <div class="weather_frame">
+        <div class="weather_loc">
+          <div class="weather_city">Loc : #{city_name}</div>
+          <div class="weather_country">Country : #{country_name}</div>
+        </div>
+        <div>
+          <div class="weather_tz">Time Zone : <b>#{time_zone}</b></div>
+        </div>
+        <hr />
+
+        <div class="weather_ps">
+          <div class="weather_temp_m">#{curr_temp}°C</div>
+        </div>
+        <div class="weather_ws">
+          <div class="weather_icon">
+            <img src="#{img_src}" alt="weather_icon" />
+          </div>
+          <div class="weather_con">#{weather_cond}</div>
+        </div>
+        <hr />
+        <div class="weather_ps">
+          <div class="weather_temp">Feels like: #{feel_like}°C</div>
+          <div class="weather_temp">Max/Min: #{maxmin_temp} °C</div>
+        </div>
+        <div class="weather_ps">
+          <div class="weather_humid">Humidity: #{humidity_per}&#37;</div>
+          <div>Cloud : #{cloud_per}&#37;</div>
+        </div>
+        <div class="weather_ps">
+          <div class="weather_wind">Wind: #{wind_speed}m/s NE</div>
+        </div>
+        <div class="weather_ps">
+          <div class="weather_pressure">Pressure: #{press}hPa</div>
+        </div>
+        <div class="weather_ps">
+          <div>Visibility: #{visibility}km</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
