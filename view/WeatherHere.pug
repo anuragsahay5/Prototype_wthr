@@ -1,4 +1,3 @@
-<!-- https://restcountries.com/v3.1/alpha?codes=in -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,11 +13,10 @@
     <div class="main_frame">
       <div class="weather_frame">
         <div class="weather_loc">
-          <div class="weather_city">Loc : #{city_name}</div>
-          <div class="weather_country">Country : #{country_name}</div>
+          <div class="weather_location">Location: #{city_name}, #{country_name}</div>
         </div>
         <div>
-          <div class="weather_tz">Time Zone : <b>#{time_zone}</b></div>
+          <div class="weather_tz">Time Zone: <b>#{time_zone}</b></div>
         </div>
         <hr />
 
@@ -41,7 +39,7 @@
           <div>Cloud : #{cloud_per}&#37;</div>
         </div>
         <div class="weather_ps">
-          <div class="weather_wind">Wind: #{wind_speed}m/s NE</div>
+          <div class="weather_wind">Wind: #{wind_speed}m/s #{wind_direction}</div>
         </div>
         <div class="weather_ps">
           <div class="weather_pressure">Pressure: #{press}hPa</div>
