@@ -3,19 +3,19 @@ const express = require("express");
 const https = require("https");
 const app = express();
 var bodyParser = require("body-parser");
-const { count } = require("node:console");
 app.use(
   bodyParser.urlencoded({
     extended: true,
   })
 );
 
+app.set("views",__dirname+"/view");
 app.set("view engine", "pug");
-app.set("views", "./view");
 app.use(express.static("static"));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/static/weahterHere.html");
+  res.sendFile(__dirname + "/static/weather.html");
+  console.log("yes1");
 });
 
 app.post("/", (req, res) => {
@@ -23,8 +23,8 @@ app.post("/", (req, res) => {
   let lon = req.body.lon;
   let Weather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=493dbfc804b222f2e32572f513f7c8e2&units=metric`;
   https.get(Weather_url, (respond) => {
-    respond.on("data", (d) => {
-      let WeatherData = JSON.parse(d);
+    respond.on("data", (d1) => {
+      let WeatherData = JSON.parse(d1);
       https.get(
         `https://restcountries.com/v3.1/alpha?codes=${WeatherData.sys.country}`,
         (res2) => {
@@ -50,6 +50,7 @@ app.post("/", (req, res) => {
               press: WeatherData.main.pressure,
               visibility: (WeatherData.visibility / 1000).toFixed(1),
             };
+            console.log(Weather_url);
             res.render("WeatherHere", param);
           });
         }
